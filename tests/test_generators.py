@@ -10,12 +10,12 @@ def test_generator_is_iterable():
     assert '__next__' in dir(gen)
 
 
-@pytest.mark.skip('Not implemented yet.')
+
 def test_cubes():
     c = iter(cubes())
     for i in range(1, 1001):
         value = next(c)
-        assert c == i ** 3
+        assert value == i ** 3
 
 
 @pytest.mark.skip('Not implemented yet.')
@@ -25,7 +25,7 @@ def test_primes_is_iterable():
     assert '__next__' in dir(gen)
 
 
-@pytest.mark.skip('Not implemented yet.')
+
 def test_primes():
     with open('tests/data_primes.json') as file:
         data = json.load(file)
@@ -42,14 +42,14 @@ def test_fibonacci_is_iterable():
     assert '__next__' in dir(gen)
 
 
-@pytest.mark.skip('Not implemented yet.')
+
 def test_fibonacci():
     with open('tests/data_fibonacci.json') as file:
         data = json.load(file)
 
     f = iter(fibonacci())
-    for fibonacci in data:
-        assert next(f) == fibonacci
+    for number in data:
+        assert next(f) == number
 
 
 @pytest.mark.skip('Not implemented yet.')

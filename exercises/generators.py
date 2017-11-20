@@ -1,4 +1,5 @@
 """Övningar på generators."""
+from math import sqrt
 
 
 def cubes():
@@ -10,7 +11,10 @@ def cubes():
     Talserien ska inte ha något slut.
 
     """
-    pass
+    i = 0
+    while True:
+        i += 1
+        yield i ** 3
 
 
 def primes():
@@ -19,7 +23,17 @@ def primes():
     Talserien som förväntas börjar alltså: 2, 3, 5, 7, 11, 13, 17, 19, 23, ...
 
     """
-    pass
+    def is_prime(x):
+        for i in range(2, int(sqrt(x)) + 1):
+            if x % i == 0:
+                return False
+        return True
+
+    p = 2
+    while True:
+        if is_prime(p):
+            yield p
+        p += 1
 
 
 def fibonacci():
@@ -31,7 +45,11 @@ def fibonacci():
     Alltså börjar serien: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, ...
 
     """
-    pass
+    a = 0
+    b = 1
+    while True:
+        c, a, b = a, b, a + b
+        yield c
 
 
 def alphabet():
@@ -44,6 +62,7 @@ def alphabet():
     Nun, Samekh, Ayin, Pe, Tsadi, Qof, Resh, Shin, Tav
 
     """
+    pass
 
 
 def permutations():
